@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_417674_materials.ShareRecords</api_name>
+        <caller_access/>
+        <client_callable>true</client_callable>
+        <description>Client callable script include to allow use of GlideRecord in the Choice lists for Requirements client script&#13;
+&#13;
+TO DO: Write logic in the client script to access this script include via GlideAjax</description>
+        <name>ShareRecords</name>
+        <script><![CDATA[var ShareRecords = Class.create();
+ShareRecords.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
+	// Grab all records from the Items list
+	getItemIDs: function() {
+		var items = new GlideRecord('x_417674_itemsdb_items');
+		items.addQuery();
+		
+		// Create array of Item IDs
+		// Initialize array
+		var itemsArr = [];
+		// Populate Array with each Item ID
+		while(items.next()) {
+			var newItem = items.getValue('item_id');
+			itemsArr.push(newItem);
+		}
+		return itemsArr;
+	},
+	
+	getProjectNames: function() {
+		var projects = new GlideRecord('x_417674_itemsdb_projects');
+		projects.addQuery();
+		
+		// Create array of Project IDs:
+		// Initialize array
+		var projectsArr = [];
+		// Populate Array with each Project ID
+		while(projects.next()) {
+			var newProject = projects.getValue('id');
+			projectsArr.push(newProject);
+		}
+		return projectsArr;
+	},
+	
+    type: 'ShareRecords'
+});]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2019-11-04 05:27:06</sys_created_on>
+        <sys_id>ed404617dbb40010237f9b81ca9619a4</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>ShareRecords</sys_name>
+        <sys_package display_value="Materials Utility" source="x_417674_materials">0eb4795bdb740010237f9b81ca961993</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="Materials Utility">0eb4795bdb740010237f9b81ca961993</sys_scope>
+        <sys_update_name>sys_script_include_ed404617dbb40010237f9b81ca9619a4</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2019-11-04 05:27:06</sys_updated_on>
+    </sys_script_include>
+</record_update>

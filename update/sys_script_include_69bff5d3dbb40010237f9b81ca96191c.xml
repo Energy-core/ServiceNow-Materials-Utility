@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_417674_materials.Utils</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description/>
+        <name>Utils</name>
+        <script><![CDATA[var Utils = Class.create();
+Utils.prototype = {
+    initialize: function() {
+    },
+	
+	getMatrixDimensions: function(matrix) {
+		// Validate matrix: check that all elements are the same length
+		var dim1 = matrix.length;
+		var dim2 = matrix[0].length;
+		var sameLength = function(arr)  {
+			var bool = true;
+			arr.forEach(function(element) {
+				if(element.length != arr[0].length) {
+					bool = false;
+				}
+			});
+		return bool;
+		};
+		
+		if(sameLength(matrix)) {
+			return [dim1, dim2];
+		} else {
+			gs.error('Error: Matrix is not well defined.');
+		}
+	},
+	
+	multiplyMatrices: function(arr1, arr2) {
+		// Validate both matrices
+		var dim1 = this.getMatrixDimensions(arr1);
+		var dim2 = this.getMatrixDimensions(arr2);
+		// Initialize result array
+		var result = new Array(dim1[0]);
+		// Initialize current nested array
+		for (var i = 0; i < dim1[0]; i++) {
+			result[i] = new Array(dim2[1]);
+		// Initialize current element
+			for (var j = 0; j < dim2[1]; j++) {
+				result[i][j] = 0;
+			// Perform multiplication operation
+				for (var k = 0; k < dim1[1]; k++) {
+					result[i][j] += arr1[i][k] * arr2[k][j];
+			// This goes through each column, and each row, multiplying the number on the kth row from the first matrix by the number on the kth column from the second matrix.
+				}
+			}
+		}
+		return result;
+	},
+
+    type: 'Utils'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2019-11-04 05:25:47</sys_created_on>
+        <sys_id>69bff5d3dbb40010237f9b81ca96191c</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Utils</sys_name>
+        <sys_package display_value="Materials Utility" source="x_417674_materials">0eb4795bdb740010237f9b81ca961993</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="Materials Utility">0eb4795bdb740010237f9b81ca961993</sys_scope>
+        <sys_update_name>sys_script_include_69bff5d3dbb40010237f9b81ca96191c</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2019-11-04 05:25:47</sys_updated_on>
+    </sys_script_include>
+</record_update>
