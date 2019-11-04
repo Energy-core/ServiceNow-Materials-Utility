@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_data_policy_rule">
+    <sys_data_policy_rule action="INSERT_OR_UPDATE">
+        <disabled>ignore</disabled>
+        <field>project_name</field>
+        <mandatory>true</mandatory>
+        <sys_class_name>sys_data_policy_rule</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2019-11-04 04:47:38</sys_created_on>
+        <sys_data_policy display_value="Sets the Project Name field to mandatory">9877715fdb740010237f9b81ca961905</sys_data_policy>
+        <sys_id>5c77715fdb740010237f9b81ca961907</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>project_name</sys_name>
+        <sys_package display_value="Materials Utility" source="x_417674_materials">0eb4795bdb740010237f9b81ca961993</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Materials Utility">0eb4795bdb740010237f9b81ca961993</sys_scope>
+        <sys_update_name>sys_data_policy_rule_5c77715fdb740010237f9b81ca961907</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2019-11-04 04:47:38</sys_updated_on>
+        <table>x_417674_materials_projects</table>
+    </sys_data_policy_rule>
+</record_update>

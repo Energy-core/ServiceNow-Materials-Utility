@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element label="Items" max_length="40" name="x_417674_materials_items" type="collection">
+        <element label="Available Qty" max_length="40" name="available_qty" type="integer"/>
+        <element label="Delivery Time (Days)" max_length="40" name="delivery_time" type="integer"/>
+        <element attributes="edge_encryption_enabled=true" display="true" label="Item ID" max_length="40" name="item_id" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Item Type" max_length="40" name="item_type" type="string"/>
+        <element label="Min. Purchase Qty." max_length="40" name="min_purchase_qty" type="integer"/>
+        <element attributes="omit_sys_original=true" label="Price" max_length="20" name="price" type="currency"/>
+        <element label="Required Qty" max_length="40" name="required_qty" type="integer"/>
+        <element attributes="edge_encryption_enabled=true" label="Short Description" max_length="200" name="short_description" type="string"/>
+    </element>
+</database>

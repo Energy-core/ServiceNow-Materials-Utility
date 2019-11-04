@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element label="Requirements" max_length="40" name="x_417674_materials_requirements" type="collection">
+        <element attributes="omit_sys_original=true" label="Item Cost" max_length="20" name="item_cost" type="currency"/>
+        <element attributes="edge_encryption_enabled=true" choice="1" label="Item Needed" max_length="40" name="item_needed" type="string">
+            <choice/>
+        </element>
+        <element attributes="edge_encryption_enabled=true" default="javascript:global.getNextObjNumberPadded();" label="Number" max_length="40" name="number" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Project" max_length="40" name="project" type="string"/>
+        <element label="Quantity Needed" max_length="40" name="quantity_needed" type="integer"/>
+        <element attributes="omit_sys_original=true" label="Total Cost" max_length="20" name="total_cost" type="currency"/>
+        <element attributes="edge_encryption_enabled=true" label="When Needed" max_length="40" name="when_needed" type="glide_date"/>
+    </element>
+</database>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_app_application">
+    <sys_app_application action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <category display_value="">Custom Applications</category>
+        <description>An application designed to organize the Materials requirements of each construction project.</description>
+        <device_type>browser</device_type>
+        <hint>An application designed to organize the Materials requirements of each construction project.</hint>
+        <name/>
+        <order/>
+        <roles>x_417674_materials.admin,x_417674_materials.manager,x_417674_materials.purchase,x_417674_materials.warehouse</roles>
+        <sys_class_name>sys_app_application</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2019-11-04 04:55:24</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>f139f51fdb740010237f9b81ca961916</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Materials Utility</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Materials Utility" source="x_417674_materials">0eb4795bdb740010237f9b81ca961993</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Materials Utility">0eb4795bdb740010237f9b81ca961993</sys_scope>
+        <sys_update_name>sys_app_application_f139f51fdb740010237f9b81ca961916</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2019-11-04 04:55:24</sys_updated_on>
+        <title>Materials Utility</title>
+        <view_name/>
+    </sys_app_application>
+</record_update>
