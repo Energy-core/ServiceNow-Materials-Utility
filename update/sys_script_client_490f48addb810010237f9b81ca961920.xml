@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script_client">
+    <sys_script_client action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <applies_extended>false</applies_extended>
+        <condition/>
+        <description>Automatically calculates the Total Cost Field  for the requirement onChange of the Quantity Needed Field.</description>
+        <field>quantity_needed</field>
+        <global>true</global>
+        <isolate_script>true</isolate_script>
+        <messages/>
+        <name>Set Total Cost on Quantity Needed Change</name>
+        <order/>
+        <script><![CDATA[function onChange(control, oldValue, newValue, isLoading, isTemplate) {
+   if (isLoading) {
+      return;
+   }
+   //Grab needed parameters: quantity needed, item cost
+	var qty = Number(newValue.split(',').join(''));
+	var cost = g_form.getValue('item_cost');
+	var total = qty * cost;
+			
+	g_form.clearValue('total_cost');
+	g_form.setValue('total_cost', total, '$' + total.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,'));
+}]]></script>
+        <sys_class_name>sys_script_client</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2019-11-10 21:06:44</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>490f48addb810010237f9b81ca961920</sys_id>
+        <sys_mod_count>6</sys_mod_count>
+        <sys_name>Set Total Cost on Quantity Needed Change</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Materials Utility" source="x_417674_materials">0eb4795bdb740010237f9b81ca961993</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Materials Utility">0eb4795bdb740010237f9b81ca961993</sys_scope>
+        <sys_update_name>sys_script_client_490f48addb810010237f9b81ca961920</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2019-11-12 04:50:36</sys_updated_on>
+        <table>x_417674_materials_requirements</table>
+        <type>onChange</type>
+        <ui_type>0</ui_type>
+        <view/>
+    </sys_script_client>
+</record_update>

@@ -5,7 +5,9 @@
         <api_name>x_417674_materials.Utils</api_name>
         <caller_access/>
         <client_callable>false</client_callable>
-        <description/>
+        <description>Utilities Script Include for the Materials Utility.&#13;
+&#13;
+IDEA: Make these methods client callable via GlideAjax</description>
         <name>Utils</name>
         <script><![CDATA[var Utils = Class.create();
 Utils.prototype = {
@@ -55,19 +57,33 @@ Utils.prototype = {
 		return result;
 	},
 
+	formatMoney: function(number, decPlaces, decSep, thouSep) {
+	decPlaces = isNaN(decPlaces = Math.abs(decPlaces)) ? 2 : decPlaces,
+	decSep = typeof decSep === "undefined" ? "." : decSep;
+	thouSep = typeof thouSep === "undefined" ? "," : thouSep;
+	var sign = number < 0 ? "-" : "";
+	var i = String(parseInt(number = Math.abs(Number(number) || 0).toFixed(decPlaces)));
+	var j = (j = i.length) > 3 ? j % 3 : 0;
+
+	return '$' + sign +
+		(j ? i.substr(0, j) + thouSep : "") +
+		i.substr(j).replace(/(\decSep{3})(?=\decSep)/g, "$1" + thouSep) +
+		(decPlaces ? decSep + Math.abs(number - i).toFixed(decPlaces).slice(2) : "");
+	},
+	
     type: 'Utils'
 };]]></script>
         <sys_class_name>sys_script_include</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2019-11-04 05:25:47</sys_created_on>
         <sys_id>69bff5d3dbb40010237f9b81ca96191c</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>3</sys_mod_count>
         <sys_name>Utils</sys_name>
         <sys_package display_value="Materials Utility" source="x_417674_materials">0eb4795bdb740010237f9b81ca961993</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="Materials Utility">0eb4795bdb740010237f9b81ca961993</sys_scope>
         <sys_update_name>sys_script_include_69bff5d3dbb40010237f9b81ca96191c</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2019-11-04 05:25:47</sys_updated_on>
+        <sys_updated_on>2019-11-10 20:46:03</sys_updated_on>
     </sys_script_include>
 </record_update>

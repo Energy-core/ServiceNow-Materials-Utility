@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script_client">
+    <sys_script_client action="INSERT_OR_UPDATE">
+        <active>false</active>
+        <applies_extended>false</applies_extended>
+        <condition/>
+        <description>Sets the Project and Item Needed fields to read-only&#13;
+&#13;
+PROBLEM: Right now options from the fields are being cleared and the setReadOnly method is not working properly.</description>
+        <field>sys_created_on</field>
+        <global>true</global>
+        <isolate_script>true</isolate_script>
+        <messages>This is a test message so we know when and where this displays if at all.</messages>
+        <name>Set Item Needed, Project as Read-Only</name>
+        <order/>
+        <script><![CDATA[function onSubmit() {
+   //Type appropriate comment here, and begin script below
+	if(g_form.isNewRecord()) {
+		alert('Requirement choice fields will now be set to read-only');
+		g_form.setReadOnly('project', true);
+		g_form.setReadOnly('item_needed', true);
+   }
+}]]></script>
+        <sys_class_name>sys_script_client</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2019-11-10 18:20:51</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>8637e795db010010237f9b81ca9619f5</sys_id>
+        <sys_mod_count>5</sys_mod_count>
+        <sys_name>Set Item Needed, Project as Read-Only</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Materials Utility" source="x_417674_materials">0eb4795bdb740010237f9b81ca961993</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Materials Utility">0eb4795bdb740010237f9b81ca961993</sys_scope>
+        <sys_update_name>sys_script_client_8637e795db010010237f9b81ca9619f5</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2019-11-12 04:14:46</sys_updated_on>
+        <table>x_417674_materials_requirements</table>
+        <type>onSubmit</type>
+        <ui_type>0</ui_type>
+        <view/>
+    </sys_script_client>
+</record_update>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script_client">
+    <sys_script_client action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <applies_extended>false</applies_extended>
+        <condition/>
+        <description>Client script to automatically set the Item Cost when onChange of the Item Needed Field.&#13;
+ALSO SETS TOTAL COST FIELD AS PRODUCT OF ITEM COST AND QUANTITY NEEDED.&#13;
+&#13;
+PENDING: Make sure the item cost is displayed as currency, even if field is read-only&#13;
+PROBLEM: attempting to format item cost with the .toFixed().replace() method results in loss of functionality </description>
+        <field>item_needed</field>
+        <global>true</global>
+        <isolate_script>true</isolate_script>
+        <messages/>
+        <name>Set Item/Total Cost for requirement</name>
+        <order/>
+        <script><![CDATA[function onChange(control, oldValue, newValue, isLoading, isTemplate) {
+   if (newValue === '') {
+      return;
+   }
+   //Access ShareRecords via Glide Ajax
+	var getRecords = new GlideAjax('ShareRecords');
+	// Specify the getItemCost method
+	getRecords.addParam('sysparm_name', 'getItemCost');
+	// Pass the item_needed variable as sysparm_item
+	getRecords.addParam('sysparm_item', g_form.getValue('item_needed'));
+	// Send the request to the server
+    getRecords.getXML(setItemCost);
+	
+	// When the response is back from the server
+	function setItemCost(response) {
+		// Extract the answer from the response
+		var serverItemCost = response.responseXML.documentElement.getAttribute('answer');
+		// Clear the item cost value
+		g_form.clearValue('item_cost');
+		// Set the new item cost value
+		g_form.setValue('item_cost', serverItemCost);
+		// Update the total cost field
+		
+		var qty = Number(g_form.getValue('quantity_needed').split(',').join(''));
+		var total = qty * serverItemCost;
+		
+		g_form.clearValue('total_cost');
+		g_form.setValue('total_cost', total, '$' + total.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,'));
+	}
+}]]></script>
+        <sys_class_name>sys_script_client</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2019-11-10 20:07:55</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>637d3fd5db410010237f9b81ca9619cc</sys_id>
+        <sys_mod_count>18</sys_mod_count>
+        <sys_name>Set Item/Total Cost for requirement</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Materials Utility" source="x_417674_materials">0eb4795bdb740010237f9b81ca961993</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Materials Utility">0eb4795bdb740010237f9b81ca961993</sys_scope>
+        <sys_update_name>sys_script_client_637d3fd5db410010237f9b81ca9619cc</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2019-11-12 04:50:08</sys_updated_on>
+        <table>x_417674_materials_requirements</table>
+        <type>onChange</type>
+        <ui_type>0</ui_type>
+        <view/>
+    </sys_script_client>
+</record_update>
